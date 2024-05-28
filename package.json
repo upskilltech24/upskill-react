@@ -4,7 +4,9 @@
   "description": "Leaning React basics",
   "main": "main.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "npx parcel index.html",
+    "start-main": "npx parcel .\\using-jsx\\index.html"
   },
   "keywords": [
     "react"
