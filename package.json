@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "npx parcel index.html",
-    "start-main": "npx parcel .\\using-jsx\\index.html"
+    "start-main": "npx parcel .\\using-jsx\\index.html",
+    "build": "npx parcel build index.html"
   },
   "keywords": [
     "react"
