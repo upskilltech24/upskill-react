@@ -1,5 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import * as ImagesJSONData from "./data/images.json";
+
+// React.createElement
 
 function createHeader() {
   const header = React.createElement(
@@ -12,6 +15,7 @@ function createHeader() {
 }
 createHeader();
 
+// React Element - JSX
 const headingUsingJSX = (
   <div>
     <h1 tabIndex='1' className='header'>
@@ -27,6 +31,7 @@ function createHeaderUsingJSX() {
 }
 createHeaderUsingJSX();
 
+// React functional components
 const HeaderComponent = () => {
   return (
     <header>
@@ -55,29 +60,33 @@ const NavComponent = () => {
 };
 
 const MainComponent = () => {
+  const imageDetails = ImagesJSONData.imageArray;
   return (
     <div>
       <h3>Image gallery</h3>
       <div className='image-container'>
-        <ImageComponent />
-        <ImageComponent />
-        <ImageComponent />
-        <ImageComponent />
-        <ImageComponent />
+        {imageArray.map((imgDetails) => {
+          return (
+            <ImageComponent key={imageDetails.id} details={imageDetails} />
+          );
+        })}
       </div>
     </div>
   );
 };
 
-const ImageComponent = () => {
+const ImageComponent = (props) => {
+  const { id, title, description, url } = props.details;
   return (
-    <div>
+    <div className='img'>
+      <p>{title}</p>
       <img
-        src={require("../assets/react.png")}
         width='100'
         height='100'
         alt='img'
+        src={require(`../assets/img.jpg`)}
       />
+      <p>{description}</p>
     </div>
   );
 };
